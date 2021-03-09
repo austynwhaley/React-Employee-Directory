@@ -1,25 +1,39 @@
 import React from 'react';
-import EmployeeCard from './components/EmployeeCard';
+import EmployeeInfo from './components/EmployeeInfo';
 import Search from './components/Search';
+import Table from './components/Table';
 import Container from './components/Container';
 import Col from './components/Col';
 import API from './utils/API';
 import '../src/App.css';
 
+
 class App extends React.Component {
-  state = { employees: [], search: '' };
+  state = { 
+
+    employees: [], 
+    search: '' 
+
+  };
 
   componentDidMount() {
     API.search()
       .then((res) => {
         this.setState({
-          employees: res.data.results.map((e, i) => ({
-            firstName: e.name.first,
-            lastName: e.name.last,
-            city: e.location.city,
-            picture: e.picture.large,
-            email: e.email,
-            phone: e.phone,
+          employees: res.data.results.map((event, i) => ({
+
+            firstName: event.name.first,
+
+            lastName: event.name.last,
+
+            city: event.location.city,
+
+            picture: event.picture.large,
+
+            email: event.email,
+
+            phone: event.phone,
+
             key: i,
           })),
         });
@@ -37,14 +51,15 @@ class App extends React.Component {
     this.setState({ employees: employeeList });
   };
 
-  handleInputChange = (e) => {
+  handleInputChange = (event) => {
     this.setState({
-      [e.target.name]: e.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
-  handleFormSubmit = (e) => {
-    e.preventDefault();
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+
     this.searchEmployee(this.state.search);
   };
 
@@ -67,19 +82,11 @@ class App extends React.Component {
           <div className="row">
             <Col size="md-12">
               <table className="table">
-                <thead>
-                  <tr>
-                    <th>Photo</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>City</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                  </tr>
-                </thead>
 
+                <Table/>
+                
                 {[...this.state.employees].map((result) => (
-                  <EmployeeCard
+                  <EmployeeInfo
                     picture={result.picture}
                     firstName={result.firstName}
                     lastName={result.lastName}

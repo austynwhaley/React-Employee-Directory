@@ -1,6 +1,6 @@
 import React from 'react';
 
-function EmployeeCard(props) {
+function EmployeeInfo(props) {
   return (
     <thead>
       <tr>
@@ -18,4 +18,4 @@ function EmployeeCard(props) {
   );
 }
 
-export default EmployeeCard;
+export default EmployeeInfo;
