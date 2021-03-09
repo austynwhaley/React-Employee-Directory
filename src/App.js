@@ -16,10 +16,10 @@ class App extends React.Component {
           employees: res.data.results.map((e, i) => ({
             firstName: e.name.first,
             lastName: e.name.last,
+            city: e.location.city,
             picture: e.picture.large,
             email: e.email,
             phone: e.phone,
-            city: e.location.city,
             key: i,
           })),
         });
@@ -27,18 +27,14 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  refreshPage() {
-    window.location.reload(false);
-  }
-
   searchEmployee = (filter) => {
-    const filteredList = this.state.employees.filter((employee) => {
+    const employeeList = this.state.employees.filter((employee) => {
       
       let values = Object.values(employee).join('').toLowerCase();
       return values.indexOf(filter.toLowerCase()) !== -1;
     });
     
-    this.setState({ employees: filteredList });
+    this.setState({ employees: employeeList });
   };
 
   handleInputChange = (e) => {
@@ -79,7 +75,6 @@ class App extends React.Component {
                     <th>City</th>
                     <th>Email</th>
                     <th>Phone</th>
-                    
                   </tr>
                 </thead>
 
@@ -90,8 +85,7 @@ class App extends React.Component {
                     lastName={result.lastName}
                     city={result.city}
                     email={result.email}
-                    phone={result.phone}
-                    
+                    phone={result.phone} 
                     key={result.key}
                   />
                 ))}
