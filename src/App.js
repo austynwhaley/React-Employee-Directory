@@ -4,7 +4,7 @@ import Search from './components/Search';
 import Container from './components/Container';
 import Col from './components/Col';
 import API from './utils/API';
-import './App.css';
+import '../src/App.css';
 
 class App extends React.Component {
   state = { employees: [], search: '' };

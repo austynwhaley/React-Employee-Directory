@@ -3,7 +3,7 @@ import React from 'react';
 function Search(props) {
   return (
     <form>
-      <div className="form-group">
+      <div className="form-group-row">
         <label htmlFor="search"></label>
         <input
           onChange={props.handleInputChange}
@@ -14,7 +14,7 @@ function Search(props) {
           placeholder="Search Employee"
           id="search"
         />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
+        <button onClick={props.handleFormSubmit} className="btn btn-success">
           Search
         </button>
       </div>
