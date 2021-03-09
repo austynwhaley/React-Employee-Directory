@@ -10,30 +10,8 @@ body {
   line-height: 1.4;
 }
 
-form{
-  margin-left: 30%;
-  padding: 20px;
-}
-
-h1 {
-  font-size: 55px;
-  margin-left: 17%;
-  padding: 50px;
-  color:green;
-}
 
 img {
   border-radius: 50%;
   padding: 10px;
-}
-
-button{
-  margin: 5px;
-  padding: 12px;
-}
-
-input[type=text] {
-  padding: 12px 20px;
-  margin: 8px 0;
-  box-sizing: border-box;
 }
