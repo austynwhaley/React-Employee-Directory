@@ -1,7 +1,7 @@
 # React Employee Directory
 
 
-![Screenshot](./public\EPDir.png)
+![Screenshot](./EPDir.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
