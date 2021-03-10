@@ -4,7 +4,6 @@ import Table from './components/Table';
 import Container from './components/Container';
 import Col from './components/Col';
 import SortBtn from './components/SortBtn';
-import Dropdown from './components/Dropdown';
 import API from './utils/API';
 import '../src/App.css';
 
@@ -42,6 +41,18 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
+  sortedEmployee(sortname) {
+
+    if (sortname === "firstname") {
+
+    } else if ( sortname === "lastName") {
+
+    } else {
+
+    }
+
+  
+  }
 
 
   render() {
@@ -52,11 +63,12 @@ class App extends React.Component {
           <div className="row">
             <Col size="md-6">
               <h1>Employee Directory</h1>
+            </Col>
+          </div>
 
-              <Dropdown/>
+          <div className="row">
+            <Col size="lg-12">
               <SortBtn/>
-
-              
             </Col>
           </div>
 

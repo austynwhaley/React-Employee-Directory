@@ -1,9 +1,14 @@
 import React from 'react';
 
-function SortBtn () {
+function SortBtn (props) {
 
     return (
-        <button className="btn btn-success">Sort</button>
+        <div>
+            <button className="btn btn-success" onClick={() => {props.sortedEmployee("firstName");}}>First Name</button>
+            <button className="btn btn-success" onClick={() => {props.sortedEmployee("lastName");}}>Last Name</button>
+            <button className="btn btn-success" onClick={() => {props.sortedEmployee("city");}}>City</button>
+        </div>
+        
     )
 }
 
