@@ -1,9 +1,10 @@
 import React from 'react';
 import EmployeeInfo from './components/EmployeeInfo';
-import Search from './components/Search';
 import Table from './components/Table';
 import Container from './components/Container';
 import Col from './components/Col';
+import SortBtn from './components/SortBtn';
+import Dropdown from './components/Dropdown';
 import API from './utils/API';
 import '../src/App.css';
 
@@ -41,27 +42,7 @@ class App extends React.Component {
       .catch((err) => console.log(err));
   }
 
-  searchEmployee = (filter) => {
-    const employeeList = this.state.employees.filter((employee) => {
-      
-      let values = Object.values(employee).join('').toLowerCase();
-      return values.indexOf(filter.toLowerCase()) !== -1;
-    });
-    
-    this.setState({ employees: employeeList });
-  };
 
-  handleInputChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-
-    this.searchEmployee(this.state.search);
-  };
 
   render() {
     return (
@@ -71,11 +52,11 @@ class App extends React.Component {
           <div className="row">
             <Col size="md-6">
               <h1>Employee Directory</h1>
-              <Search
-                value={this.state.search}
-                handleInputChange={this.handleInputChange}
-                handleFormSubmit={this.handleFormSubmit}
-              />
+
+              <Dropdown/>
+              <SortBtn/>
+
+              
             </Col>
           </div>
 
